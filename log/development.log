@@ -55647,3 +55647,674 @@ Processing by EventsController#index as HTML
   Rendered events/index.html.erb within layouts/application (3.3ms)
   Rendered layouts/_navbar.html.erb (1.0ms)
 Completed 200 OK in 214ms (Views: 213.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-20 17:19:45 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by EventsController#index as HTML
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events"
+  Rendered events/index.html.erb within layouts/application (34.5ms)
+  Rendered layouts/_navbar.html.erb (7.3ms)
+Completed 200 OK in 1401ms (Views: 1280.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-20 17:19:47 +0100
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.4ms)[0m  [1mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+Completed 200 OK in 512ms (Views: 510.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/events/10" for 127.0.0.1 at 2015-11-20 17:20:17 +0100
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"10"}
+Completed 401 Unauthorized in 24ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-11-20 17:20:17 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (51.3ms)
+  Rendered layouts/_navbar.html.erb (0.4ms)
+Completed 200 OK in 264ms (Views: 248.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2015-11-20 17:20:21 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (5.7ms)
+  Rendered layouts/_navbar.html.erb (0.4ms)
+Completed 200 OK in 202ms (Views: 200.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-11-20 17:20:24 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.7ms)
+  Rendered layouts/_navbar.html.erb (1.4ms)
+Completed 200 OK in 398ms (Views: 396.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-11-20 17:20:46 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jRR6lucjHuEmMQhFqZcboiIGTK2FoJyWhZQ1Biifw7jr9C3kEXqKZUHg+ydJxtLFUounnfukPNFQaFZ+bFuIkg==", "user"=>{"email"=>"xx@xxxx.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Se connecter"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "xx@xxxx.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (15.2ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-11-20 16:20:47.020353"], ["current_sign_in_at", "2015-11-20 16:20:47.020353"], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2015-11-20 16:20:47.021355"], ["id", 1]]
+  [1m[36m (59.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/events/10
+Completed 302 Found in 479ms (ActiveRecord: 75.2ms)
+
+
+Started GET "/events/10" for 127.0.0.1 at 2015-11-20 17:20:47 +0100
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mEvent Load (0.9ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35mParticipation Load (0.2ms)[0m  SELECT "participations".* FROM "participations" WHERE "participations"."event_id" = ?  [["event_id", 10]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 9]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "participations" WHERE "participations"."event_id" = ?  [["event_id", 10]]
+  Rendered events/show.html.erb within layouts/application (13.8ms)
+  Rendered layouts/_navbar.html.erb (0.9ms)
+Completed 200 OK in 367ms (Views: 251.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-20 17:20:58 +0100
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/application (1.5ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered layouts/_navbar.html.erb (1.3ms)
+Completed 200 OK in 185ms (Views: 183.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/events/10" for 127.0.0.1 at 2015-11-20 17:21:23 +0100
+Processing by EventsController#participate as HTML
+  Parameters: {"authenticity_token"=>"nM/KisohG6c0+e0XEzBoiOhSeoyZqYNUstDMaZaYh3uj93t9h9/aayykpzdnxqKjwWzQs5wRBlhF/MjdnzqUBw==", "id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mParticipation Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "participations" WHERE ("participations"."user_id" = 1 AND "participations"."event_id" = 10) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "participations" ("user_id", "event_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["user_id", 1], ["event_id", 10], ["created_at", "2015-11-20 16:21:23.404432"], ["updated_at", "2015-11-20 16:21:23.404432"]]
+  [1m[36m (79.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/events/10
+Completed 302 Found in 136ms (ActiveRecord: 80.3ms)
+
+
+Started GET "/events/10" for 127.0.0.1 at 2015-11-20 17:21:23 +0100
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35mParticipation Load (0.1ms)[0m  SELECT "participations".* FROM "participations" WHERE "participations"."event_id" = ?  [["event_id", 10]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "participations" WHERE "participations"."event_id" = ?[0m  [["event_id", 10]]
+  Rendered events/show.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_navbar.html.erb (0.6ms)
+Completed 200 OK in 209ms (Views: 205.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/events/new" for 127.0.0.1 at 2015-11-20 17:21:43 +0100
+Processing by EventsController#new as HTML
+  Parameters: {"authenticity_token"=>"SXhrRCYu8l4DukrYX3dCnPNZ/tL4EfV/DsI0JzZKDBR2QNqza9AzkhvnAPgrgYi32mdU7f2pcHP57jCTP+gfaA=="}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered events/_form.html.erb (32.0ms)
+  Rendered events/new.html.erb within layouts/application (35.3ms)
+  Rendered layouts/_navbar.html.erb (0.5ms)
+Completed 200 OK in 327ms (Views: 324.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-20 17:21:50 +0100
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/application (2.3ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered layouts/_navbar.html.erb (2.0ms)
+Completed 200 OK in 216ms (Views: 215.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2015-11-20 17:22:33 +0100
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events"[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT  "events".* FROM "events"  ORDER BY events.updated_at desc LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "participations"[0m
+  [1m[35mParticipation Load (0.1ms)[0m  SELECT  "participations".* FROM "participations"  ORDER BY participations.updated_at desc LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  ORDER BY users.updated_at desc LIMIT 1
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (16.7ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/layouts/rails_admin/_secondary_navigation.html.haml (4.3ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/layouts/rails_admin/_navigation.html.haml (13.8ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (5.2ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/layouts/rails_admin/pjax.html.haml (9.3ms)
+Completed 200 OK in 10089ms (Views: 9762.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2015-11-20 17:22:44 +0100
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "events"[0m
+  [1m[35mEvent Load (0.4ms)[0m  SELECT  "events".* FROM "events"  ORDER BY events.updated_at desc LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "participations"[0m
+  [1m[35mParticipation Load (0.4ms)[0m  SELECT  "participations".* FROM "participations"  ORDER BY participations.updated_at desc LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  ORDER BY users.updated_at desc LIMIT 1
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (9.9ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/layouts/rails_admin/_secondary_navigation.html.haml (1.4ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/layouts/rails_admin/_navigation.html.haml (7.3ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (3.5ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/layouts/rails_admin/pjax.html.haml (1.4ms)
+Completed 200 OK in 461ms (Views: 447.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/admin/event?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2015-11-20 17:22:51 +0100
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"event"}
+  [1m[36mEvent Load (0.7ms)[0m  [1mSELECT  "events".* FROM "events"  ORDER BY events.id desc LIMIT 20 OFFSET 0[0m
+  [1m[35mUser Load (1.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (3, 1, 2, 9)
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "events"[0m
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (197.4ms)
+Completed 200 OK in 243ms (Views: 226.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/admin/event/13/show_in_app" for 127.0.0.1 at 2015-11-20 17:22:55 +0100
+Processing by RailsAdmin::MainController#show_in_app as HTML
+  Parameters: {"model_name"=>"event", "id"=>"13"}
+  [1m[35mEvent Load (0.2ms)[0m  SELECT  "events".* FROM "events" WHERE "events"."id" = ?  ORDER BY "events"."id" ASC LIMIT 1  [["id", 13]]
+Redirected to http://localhost:3000/events/13
+Completed 302 Found in 9ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/events/13" for 127.0.0.1 at 2015-11-20 17:22:55 +0100
+Processing by EventsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mEvent Load (0.1ms)[0m  SELECT  "events".* FROM "events" WHERE "events"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mParticipation Load (0.1ms)[0m  [1mSELECT "participations".* FROM "participations" WHERE "participations"."event_id" = ?[0m  [["event_id", 13]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "participations" WHERE "participations"."event_id" = ?[0m  [["event_id", 13]]
+  Rendered events/show.html.erb within layouts/application (4.0ms)
+  Rendered layouts/_navbar.html.erb (0.6ms)
+Completed 200 OK in 216ms (Views: 212.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/event" for 127.0.0.1 at 2015-11-20 17:22:59 +0100
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"model_name"=>"event"}
+  [1m[35mEvent Load (0.2ms)[0m  SELECT  "events".* FROM "events"  ORDER BY events.id desc LIMIT 20 OFFSET 0
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (3, 1, 2, 9)[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events"
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/application (43.5ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/layouts/rails_admin/_secondary_navigation.html.haml (0.8ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/layouts/rails_admin/_navigation.html.haml (2.7ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (2.3ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/layouts/rails_admin/pjax.html.haml (3.5ms)
+Completed 200 OK in 424ms (Views: 416.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/event/13/edit?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2015-11-20 17:23:02 +0100
+Processing by RailsAdmin::MainController#edit as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"event", "id"=>"13"}
+  [1m[36mEvent Load (0.1ms)[0m  [1mSELECT  "events".* FROM "events" WHERE "events"."id" = ?  ORDER BY "events"."id" ASC LIMIT 1[0m  [["id", 13]]
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/rails_admin/main/_form_field.html.haml (1.3ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/rails_admin/main/_form_field.html.haml (0.4ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/rails_admin/main/_form_datetime.html.haml (2.3ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/rails_admin/main/_form_field.html.haml (0.3ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/rails_admin/main/_form_field.html.haml (21.4ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/rails_admin/main/_form_field.html.haml (0.2ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users"  ORDER BY users.id desc
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/rails_admin/main/_form_filtering_select.html.haml (14.2ms)
+  [1m[36mParticipation Load (0.2ms)[0m  [1mSELECT "participations".* FROM "participations" WHERE "participations"."event_id" = ?[0m  [["event_id", 13]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "participations"
+  [1m[36mParticipation Load (0.6ms)[0m  [1mSELECT "participations".* FROM "participations"  ORDER BY participations.id desc[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (1, 3, 8, 7, 6)
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events" WHERE "events"."id" IN (10, 1, 9)[0m
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/rails_admin/main/_form_filtering_multiselect.html.haml (17.9ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/rails_admin/main/_submit_buttons.html.haml (3.6ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/rails_admin/main/edit.html.haml within layouts/rails_admin/pjax (115.1ms)
+Completed 200 OK in 146ms (Views: 138.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/rails_admin/multiselect/icon_sprite-34a30806fcba43a2effc9739cb7a370a865199a7d38bfcbc7c2474ef3ff70ded.png" for 127.0.0.1 at 2015-11-20 17:23:02 +0100
+
+
+Started GET "/admin/user?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2015-11-20 17:23:19 +0100
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"user"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  ORDER BY users.id desc LIMIT 20 OFFSET 0
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (175.1ms)
+Completed 200 OK in 197ms (Views: 188.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/user" for 127.0.0.1 at 2015-11-20 17:25:43 +0100
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"model_name"=>"user"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY users.id desc LIMIT 20 OFFSET 0
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/application (80.7ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/layouts/rails_admin/_secondary_navigation.html.haml (0.7ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/layouts/rails_admin/_navigation.html.haml (2.4ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (1.9ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/layouts/rails_admin/pjax.html.haml (4.0ms)
+Completed 200 OK in 423ms (Views: 418.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/rails_admin/rails_admin.self-315704af5a475c5948bffd72e8b91fb12a5596e4b4889c095be27bf0a3f3c5fb.css?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/jquery-ui/effect.self-3acdb29e7da09c8f0195b994d2f04d73bfef50dc539c84fd2c835d964d33e5c1.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/jquery.remotipart.fixed.self-357a8f834a6b278f578acd51708542bff0852a75d8d583d0d761d3f387af5b4c.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/jquery-ui/core.self-93be4d22eda916787802a64d8f88b52db8a9027d4ccbbc0942625324a7d12d44.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/jquery.iframe-transport.self-9d6de1e3d97369f20a85456477db38a3d2b674761f4a252275201ec0272793a4.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/jquery-ui/widget.self-c1602241ddc51216b58391768667068867b8e15b9efc722befcd25771eda6819.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/jquery-ui/mouse.self-c513294e8da73f31f84ba3ef11e2a1180a47faea0eb2fea4a53fc26153dd21fd.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/jquery-ui/position.self-e693ced4ecfa1a276f0b794f32c1d30d792764b08788bf68ecfa3b388c291333.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/jquery-ui/sortable.self-df2d80a36f9dfbe0facc596ccd92af83ca50d38e4cd6a84810aaf5d40b8cd181.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/jquery-ui/menu.self-7abc1c9401509a7e4fc609b1e461be6fd17e8116e8fda19cc59d05ba79aefb68.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/jquery-ui/autocomplete.self-3befc48aba87cead090cfd014562b2771a662ac6d2c8197b24c08b2d9f3d9f2d.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/moment-with-locales.self-c29e385ac561ac8d380cf9a68428251c3dd6b6f0f05f6114c6ae7e8114678db8.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/jquery.colorpicker.self-65a540a6a8e61569a39a37bd1456543ae5e5bbe48868247372bed40a1dff2bcf.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/ra.filter-box.self-7a15aaeea6101fb1e648df5848917eddd01c5c193ffae1e121224ec7e96d8647.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/ra.filtering-multiselect.self-0eadfce64f22b8e533f96e573e738fdf5af614af5729c772838b8d1383739035.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/ra.filtering-select.self-29fedc7e0063905fecd8485d5a526f85b0d0c3f04de8416c2b56227e5b530528.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/ra.remote-form.self-6ee31242b35c47eae247621696152697683860be737fcb9fc7705305736c9370.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/jquery.pjax.self-aa02343d5b755c77fd76db8b2d2864cf2aebdba056b56e74b3b91f2e65207444.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/jquery_nested_form.self-d38045d10ebdd28aac44152cb451796232091957b86b47bedad1ab171a3a12cd.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/ra.nested-form-hooks.self-abecd3cd4d55ce44cbf00b87d2f612d570af5e7fe5701d05135d60f8c07e7d37.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/ra.i18n.self-725ab24c454e18d4832f68df96ec4fffa6190faed5636160923a6d1162a1a0ba.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-transition.self-09ff30b1e8a93d1f7728b9855f55d9c9d8d5734c8861e0d8139994e50944572a.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-affix.self-d2b642d8fbfc1d7041e2edefd66683ada567a980789dcd6f94fddda0b33408b5.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-alert.self-a29e91e8cd3ddaba9bbc466901d53ec2127e9256b9b941905d525a3a716bd1a5.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-button.self-a6cb16785434acb365ae426aef9f1fce05ed553cae7a965e4471c3da71509175.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-carousel.self-57eb8422043cf0a85b7a9dc6843916eb0a3e35b419c7798a5eb254b918997631.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-collapse.self-7dc8bfbc2fbfabd2bad62c58ff8ffeaf8f20fb87c7ca6cd35f06d4dc19632587.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-dropdown.self-9314126777c6be5443e37ea7f7967d7914d72b3e60449ba50edc967446373059.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-modal.self-72f95ffa1071297725a9ac91989693d56d1abf23f441a47455073b0da2857a5b.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-scrollspy.self-a155b9d4b2f978905f0326c0f6635e1134fe91c6bfbfcbad079fa24a9fef2b0e.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-tab.self-122235057fbd4c6c7da377d59dc58f47b44cb1088a2e38e6ee6ce9d8ac29a26a.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-tooltip.self-11cf547be953f25f511cec668f6690473fd97b2f65502e4032f4030999a3f0c3.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-popover.self-77d8e3a2499c1104ef146396a68b82469ee2bdb365199b874694698d10405e9a.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-typeahead.self-2621ced336904d375bef144d46edd9d304889e09c6559d64df325bbd10f4ce8a.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap.self-94f59a48294d99f8d9b7632cd5a1742670c7735fe37ec7c555aab939b635fdde.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/ra.widgets.self-915816efd8a7fd5c48fd8f01ec2075ba2242662d91c164e39c1a4e44110b5761.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/ui.self-5f1671365225e7918e5bf4cb99fc38b189e81884fb859682f79a683f41ee19b7.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/custom/ui.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/rails_admin.self-ab9f3e5c71b96d0ca434851ecacc97b0fc3a0e8d96ab171916e9d5fdd10ef15b.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/rails_admin/bootstrap-datetimepicker.self-9bf8b50ba86095fb5caaadd1ee11eaf661b3f4879f3ea5263d541e9804fd7b15.js?body=1" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/assets/fontawesome-webfont-3c4a1bb7ce3234407184f0d80cc4dec075e4ad616b44dcc5778e1cfb1bc24019.woff2?v=4.4.0" for 127.0.0.1 at 2015-11-20 17:25:44 +0100
+
+
+Started GET "/admin/?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2015-11-20 17:25:47 +0100
+Processing by RailsAdmin::MainController#dashboard as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]"}
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "events"
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT  "events".* FROM "events"  ORDER BY events.updated_at desc LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "participations"
+  [1m[36mParticipation Load (0.2ms)[0m  [1mSELECT  "participations".* FROM "participations"  ORDER BY participations.updated_at desc LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY users.updated_at desc LIMIT 1[0m
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/pjax (14.2ms)
+Completed 200 OK in 37ms (Views: 28.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-20 17:25:50 +0100
+Processing by EventsController#index as HTML
+  [1m[35mEvent Load (0.5ms)[0m  SELECT "events".* FROM "events"
+  Rendered events/index.html.erb within layouts/application (3.5ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered layouts/_navbar.html.erb (1.3ms)
+Completed 200 OK in 272ms (Views: 270.7ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-11-20 17:25:52 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"DkcVN0b/DPIc/vlK2BqaKnddWfJmPWgk+HKuFhJBciwxf6TACwHNPgSjs2qs7FABXmPzzWOF7SgPXqqiG+NhUA=="}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 33ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-20 17:25:52 +0100
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.8ms)[0m  [1mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/application (3.0ms)
+  Rendered layouts/_navbar.html.erb (0.5ms)
+Completed 200 OK in 213ms (Views: 211.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2015-11-20 17:25:58 +0100
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events"
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT  "events".* FROM "events"  ORDER BY events.updated_at desc LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "participations"
+  [1m[36mParticipation Load (0.3ms)[0m  [1mSELECT  "participations".* FROM "participations"  ORDER BY participations.updated_at desc LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY users.updated_at desc LIMIT 1[0m
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (15.2ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/layouts/rails_admin/_secondary_navigation.html.haml (0.6ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/layouts/rails_admin/_navigation.html.haml (2.2ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (2.3ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/layouts/rails_admin/pjax.html.haml (1.7ms)
+Completed 200 OK in 493ms (Views: 482.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2015-11-20 17:26:21 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsAdmin::MainController#dashboard as HTML
+Completed 401 Unauthorized in 57ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-11-20 17:26:21 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (67.5ms)
+  Rendered layouts/_navbar.html.erb (1.9ms)
+Completed 200 OK in 519ms (Views: 495.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/events.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/foundation_and_overrides.self-bc4a73b32b3bb5a7eb3321336848dc551e453fb882cc539250bffce45c0bc5a7.css?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/application.self-b571b19fc7296922d2c268a889e50923db86fce4e6c07c041c63a21db54f4865.css?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/vendor/modernizr.self-74da3245def7569da28115667be6a85a2ad97464abe707c9829c46d8975597bc.js?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/participations.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/foundation/foundation.self-98616d4fb376f824aeb7c868e05e747b97176a864c7da854779ed398828df78f.js?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/foundation/foundation.abide.self-670a9b56e37b4b434f79686b8a9862222173d68ec823b20565340e0e87627ca4.js?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/foundation/foundation.alert.self-631e4c4124bd543574c5a7f4d5d8b59fdf350f6c11d6201ba8a872e8a0f203b0.js?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/foundation/foundation.accordion.self-02a179f7efde1facecf8a814cae32112c36800ce3d66bafc00c807a56d7b8d46.js?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/foundation/foundation.clearing.self-96397aa6b2d39ff61e9b4ce8486a9f716f9072f2011f1dc99f94a96b381b3830.js?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/foundation/foundation.dropdown.self-3e70f72040b183d09b673307b08d1d688a5572c6c8cbb222755945e70ccbb05e.js?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/foundation/foundation.equalizer.self-1889be5dfd0e56321a9a6d5fe9d4a94b04602c158f3e4d58419b967c255b999f.js?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/foundation/foundation.interchange.self-c6d033cdd9e7fd3f29c067eb7b9ee564f7a6b542650d2ca530ae1e3c529a3c35.js?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/foundation/foundation.joyride.self-1f6b19104e2439f1e4353444cb6fb9f7f308563556f167c2154ca3108eb7f77e.js?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/foundation/foundation.magellan.self-1fcf75780d5b4db5e97c267810e7c9a5e19a9f0d7b67a2d167074d7cff1d6a70.js?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/foundation/foundation.offcanvas.self-2f34a4b91e1e958aefbde46004d6186ee82e018fe95634214749799141339810.js?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/foundation/foundation.orbit.self-ba7d30fe424df83b5bc8bc5bb67ea90608759c6eb8212d1475d52b09db0bcd0f.js?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/foundation/foundation.reveal.self-5a83316675f14b52f582d67c053ae7977827a5b06459d7e8f5556cbedfba1d0d.js?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/foundation/foundation.slider.self-686e8b14e01aeb75ec0980de90956540d2b245324fc58e8c25debafc60300b96.js?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/foundation/foundation.tab.self-9b2bd1afa5715ce8f154fa008d0aab44500763e9b336a6d4e5bca96437176a74.js?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/foundation/foundation.tooltip.self-dae1db2297f90064e1a8ae7b02b175ca613cc6a2d190aaed548f6ef853f4b46d.js?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/foundation/foundation.topbar.self-fa6260890f9f59c821128d066bcfaa18665c816022bafd398d937c367d5e39b7.js?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/foundation.self-abe4ee7a105042f73b12b1f1a28788522d2f253445a475a94ab4d6e1f7b0ec52.js?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/events.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/participations.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started GET "/assets/application.self-79a300d240bbf145c9af961805bc87f18e9f73bd1cda275895295c80d8552d3f.js?body=1" for 127.0.0.1 at 2015-11-20 17:26:22 +0100
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-11-20 17:28:54 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gBEWI2lcxjn8FMrDr6BLr27BdDmvGr9eRO+nr5l0DeCwnH+hTjuF48151utBCv6AKqmZqBVmNJC8BYnXrSlAjw==", "user"=>{"email"=>"xx@xxxx.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Se connecter"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "xx@xxxx.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["current_sign_in_at", "2015-11-20 16:28:54.571042"], ["sign_in_count", 2], ["updated_at", "2015-11-20 16:28:54.572155"], ["id", 1]]
+  [1m[36m (72.5ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/admin/
+Completed 302 Found in 383ms (ActiveRecord: 73.2ms)
+
+
+Started GET "/admin/" for 127.0.0.1 at 2015-11-20 17:28:54 +0100
+Processing by RailsAdmin::MainController#dashboard as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "events"[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT  "events".* FROM "events"  ORDER BY events.updated_at desc LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "participations"[0m
+  [1m[35mParticipation Load (0.2ms)[0m  SELECT  "participations".* FROM "participations"  ORDER BY participations.updated_at desc LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY users.updated_at desc LIMIT 1
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/rails_admin/main/dashboard.html.haml within layouts/rails_admin/application (13.7ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/layouts/rails_admin/_secondary_navigation.html.haml (2.1ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/layouts/rails_admin/_navigation.html.haml (5.9ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/layouts/rails_admin/_sidebar_navigation.html.haml (3.2ms)
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/layouts/rails_admin/pjax.html.haml (3.3ms)
+Completed 200 OK in 702ms (Views: 458.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/admin/event?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2015-11-20 17:28:59 +0100
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"event"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mEvent Load (1.0ms)[0m  SELECT  "events".* FROM "events"  ORDER BY events.id desc LIMIT 20 OFFSET 0
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (3, 1, 2, 9)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "events"
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (126.4ms)
+Completed 200 OK in 147ms (Views: 133.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/admin/participation?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2015-11-20 17:29:01 +0100
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"participation"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mParticipation Load (0.3ms)[0m  SELECT  "participations".* FROM "participations"  ORDER BY participations.id desc LIMIT 20 OFFSET 0
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (1, 3, 8, 7, 6)[0m
+  [1m[35mEvent Load (0.2ms)[0m  SELECT "events".* FROM "events" WHERE "events"."id" IN (10, 1, 9)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "participations"[0m
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (49.6ms)
+Completed 200 OK in 65ms (Views: 54.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/admin/user?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2015-11-20 17:29:01 +0100
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"user"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY users.id desc LIMIT 20 OFFSET 0[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered /home/hacknook/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/bundler/gems/rails_admin-022a4fe524b9/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (73.8ms)
+Completed 200 OK in 93ms (Views: 79.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-20 17:29:03 +0100
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/application (3.2ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered layouts/_navbar.html.erb (3.6ms)
+Completed 200 OK in 244ms (Views: 243.1ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2015-11-20 17:29:05 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"fIBYkHwMTRqXlL8Pfrki2JcfD/1tLFnRTMz6Ui3YT79sxRCpQCEXdj7mvdgUQ/AIqD9FB9RaetZHWFXVIqjq7A=="}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 9ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-20 17:29:05 +0100
+Processing by EventsController#index as HTML
+  [1m[35mEvent Load (0.4ms)[0m  SELECT "events".* FROM "events"
+  Rendered events/index.html.erb within layouts/application (4.3ms)
+  Rendered layouts/_navbar.html.erb (0.5ms)
+Completed 200 OK in 237ms (Views: 235.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2015-11-20 17:29:07 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_navbar.html.erb (0.4ms)
+Completed 200 OK in 197ms (Views: 196.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2015-11-20 17:29:22 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7fAd8/SOXVLvvD4N6WglnhZwlTlovYO0+7urmKf/5gYY5fQqzKZWN3his4++9GHMMYFzmnNNRVAqahLsttvRYA==", "user"=>{"email"=>"ii@iiii.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Se connecter"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "ii@iiii.com"]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2015-11-20 16:29:22.667965"], ["current_sign_in_at", "2015-11-20 16:29:22.667965"], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2015-11-20 16:29:22.669474"], ["id", 2]]
+  [1m[35m (189.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 288ms (ActiveRecord: 189.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-20 17:29:22 +0100
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.3ms)[0m  [1mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/application (2.9ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered layouts/_navbar.html.erb (3.8ms)
+Completed 200 OK in 398ms (Views: 395.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-11-20 17:29:31 +0100
+Processing by EventsController#index as HTML
+  [1m[36mEvent Load (0.2ms)[0m  [1mSELECT "events".* FROM "events"[0m
+  Rendered events/index.html.erb within layouts/application (2.3ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 2]]
+  Rendered layouts/_navbar.html.erb (1.8ms)
+Completed 200 OK in 190ms (Views: 188.7ms | ActiveRecord: 0.3ms)
