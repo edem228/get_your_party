@@ -24,7 +24,7 @@
 	
 	<div class="event_right small-3 medium-3 columns">
 	<h5>Participation: <%= @event.cost %>€</h5>
-	<h5><%= link_to 'Participer', participate_event_path, method: :post %></h5>
+	<h5><%= link_to 'Participer', participate_event_path, method: :post, :data => {:confirm => 'sera débité de votre compte'} %></h5>
 	</div>
 </div>
 

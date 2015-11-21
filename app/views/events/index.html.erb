@@ -10,7 +10,7 @@
 				Adresse: <b><%= e.address %></b> | <%= e.venue %>
 			</div>
 			<div class="datetime">
-				<%= e.event_date %> |
+				<%= e.event_date.strftime("%m/%d/%Y") %> |
 				<%= e.hour %>
 			</div>
 			<div class="">
