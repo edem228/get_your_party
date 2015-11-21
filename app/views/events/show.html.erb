@@ -3,10 +3,8 @@
 	<h3><%= @event.name %></h3>
 </div>
 
-
 <%= @price %>
  
-
 <div class="row">
 	<div class =" event_left small-3 medium-3 columns">
 	<div>
@@ -21,6 +19,7 @@
 			<%= @event.description %>
 			Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un peintre anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.
 		</p>
+		<%= link_to 'Editer cet évenement', edit_event_path(@event) %>
 	</div>
 	
 	<div class="event_right small-3 medium-3 columns">

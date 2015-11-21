@@ -41,7 +41,7 @@ p{
 	font-size: 150%; 
 	/*float: right;*/
 	color: #45E4D1;
-	text-transform: capitalize;
+	text-transform: uppercase;
 }
 .event h3:before{
 }
