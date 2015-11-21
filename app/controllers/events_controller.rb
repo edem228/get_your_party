@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
 	before_action :authenticate_user!, except: :index
+	before_action :find_envent, only: [:edit, :show, :update]
 	def index
-		@events = Event.all
+		@events = Event.order(:event_date).all.reverse
 	end
 	
 	def new
@@ -9,11 +10,20 @@ class EventsController < ApplicationController
 	end
 
 	def create
-		@event = Event.new(event_params)
+		@event = current_user.events.build(event_params)
 		if	@event.save
 			redirect_to @event
 		else
 			render 'new'
+		end
+	end
+	def edit
+	end
+	def update
+		if @event.update(event_params)
+			redirect_to @event
+		else
+			render 'edit'
 		end
 	end
 
@@ -36,7 +46,9 @@ class EventsController < ApplicationController
 
 	private
 	
-
+	def find_envent
+		@event = Event.find(params[:id])
+	end
 	def event_params
 		params.require(:event).permit(:name, :venue, :description, :address, :hour, :event_date, :places, :user_id)
 	end
