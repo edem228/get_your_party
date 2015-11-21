@@ -23,7 +23,7 @@
 
     <!-- Left Nav Section -->
     <ul class="left">
-      <li><a href="#">A propos</a></li>
+      <li><%= link_to 'A propos', welcome_index_path %></li>
     </ul>
 
     <% else %>
@@ -38,7 +38,14 @@
         </ul>
       </li>
     </ul>
-
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li><%= link_to 'A propos', welcome_index_path %></li>
+    </ul>
     <% end %>
   </section>
 </nav>
+<div class="notice">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+</div>

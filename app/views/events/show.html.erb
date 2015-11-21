@@ -10,28 +10,12 @@
 <div class="row">
 	<div class =" event_left small-3 medium-3 columns">
 	<div>
-		<h5>
-		
-			Organisateur:<%= @event.user.first_name %> <%= @event.user.last_name %>
-		</h5>
-
-	<h5>
-		Date:<%= @event.event_date %> | Heure: <%= @event.hour %>
-	</h5>
-
-	<h5>
-		Adresse:<%= @event.address %>
-	</h5>
-
-	<h5>
-		Lieu:<%= @event.venue %>
-	</h5>
-
-	<h5>
-		Participants: <%= @event.participations.count %> / <%= @event.places %>
+		<h5>Organisateur:<%= @event.user.first_name %> <%= @event.user.last_name %></h5>
+		<h5>Date:<%= @event.event_date %> | Heure: <%= @event.hour %></h5>
+		<h5>Adresse:<%= @event.address %></h5>
+		<h5>Lieu:<%= @event.venue %></h5>
+		<h5>Participants: <%= @event.participations.count %> / <%= @event.places %></div>
 	</div>
-	</div>
-	
 	<div class ="event_center small-6 medium-6 columns"><h5>Description:</h5>
 		<p>
 			<%= @event.description %>

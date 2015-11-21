@@ -71,11 +71,39 @@ body{
   border-radius: 5px;
   opacity: 0.8;
 }
+.notice{
+	margin: 30px auto;
+	width: 100%;
+}
+p.alert {
+  width: 50%;
+  margin: 30px auto;
+}
+p.notice {
+  width: 50%;
+  margin: 30px auto;
+}
+#error_explanation h2{
+	font-size: 100%;
+}
+#error_explanation ul li{
+	color: #FF0703;
+}
+em{
+	color: #45E4D1;
+}
 .connecter h2{
 	color: #fff;
 }
 label{
 	color: #989696;
+}
+.apropos{
+	background-color: #2B2065;
+	opacity: 0.8;
+}
+.apropos p{
+	padding: 10px;
 }
 
 /*page show events*/

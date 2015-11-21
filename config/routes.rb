@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :events
   resources :participations
+  get 'apropos' => 'welcome#index', as: 'welcome_index'
   root 'events#index'
   get 'users/:id/' => 'users#show', as: 'user_show'
   post 'events/:id/' => 'events#participate', as: 'participate_event'
