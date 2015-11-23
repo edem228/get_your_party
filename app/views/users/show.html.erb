@@ -1,1 +1,6 @@
-show.html.erb
+<div class="row">
+	<% @events.each do |e| %>
+		<li><%= link_to e.name, e %></li>
+		<p><%= link_to 'Editer', edit_event_path(e) %> | <%= link_to 'Supprimer', event_path(e), method: :delete, data: {confirm: 'cet événement sera définitivement Supprimer'} %></p>
+	<% end %>
+</div>

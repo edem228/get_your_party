@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
 	before_action :authenticate_user!, except: :index
-	before_action :find_envent, only: [:edit, :show, :update]
+	before_action :find_envent, only: [:edit, :show, :update, :destroy]
 
 	def index
 		@events = Event.order(:event_date).all
@@ -32,6 +32,11 @@ class EventsController < ApplicationController
 	def show
 		@user = current_user
 		@participants = @event.participants
+	end
+	def destroy
+		if @event.destroy
+			redirect_to root_path
+		end
 	end
 
 	def participate

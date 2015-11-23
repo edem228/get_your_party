@@ -1,25 +1,24 @@
 <div class="content">
 <% @events.each do |e| %>
 	<div class="event">
-		<h3><%= e.name %></h3>
+		<h3><%= link_to e.name, e %></h3>
 		<div class="desciption">
-				<p><%= e.description %></p>
-			</div>
-			
-			<div>
-				Adresse: <b><%= e.address %></b> | <%= e.venue %>
-			</div>
-			<div class="datetime">
-				<%= e.event_date.strftime("%m/%d/%Y") %> |
-				<%= e.hour %>
-			</div>
-			<div class="">
-				Participant(s): <b><%= e.places %></b>
-			</div>
-			<div class="details">
-				<%= link_to 'Détails', event_path(e) %>
-			</div>
-
+			<p><%= e.description %></p>
+		</div>
+		
+		<div>
+			Adresse: <b><%= e.address %></b> | <%= e.venue %>
+		</div>
+		<div class="datetime">
+			<%= e.event_date.strftime("%m/%d/%Y") %> |
+			<%= e.hour %>
+		</div>
+		<div class="">
+			Participant(s): <b><%= e.places %></b>
+		</div>
+		<div class="details">
+			<%= link_to 'Détails', event_path(e) %>
+		</div>
 	</div>
 
 <% end %>
